@@ -1,0 +1,270 @@
+/*con este enlace es con el cual se importa el tipo de letra que temdria la pagina*/
+@import url('https://fonts.googleapis.com/css2? family= Merriweather:wght@300 & display=swap');
+
+/*aqui se utiliza el selector univrsal*/
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Merriweather', sans-serif;
+   text-decoration: none;  /*es para eliminar la linea que existe debajo del texto*/
+
+}
+/*para la parte de arriba*/
+header{
+   width: 100%;
+   position: fixed;   /*es para que se mantenga por encima de todo*/
+   top: 0;
+   left: 0;
+   background: rgb(78, 25, 25);
+}
+
+/*tamaño para el tipo de letra */
+/*header superior*/
+.header__superior{
+   max-width: 1200px;
+   margin: auto;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 20px;
+}
+
+.logo img{
+  width: 250px ;
+}
+
+
+/*para la barra de menu*/
+.container__menu{
+   width: 100%;
+   height: 70px;
+   /*background-image: url();*/
+   background: #2b2b7c ; /*da color a la barra donde estan los munus*/
+   padding: 0px 20px;
+
+}
+
+.menu{
+   max-width: 1200px;
+   margin: auto;
+   height: 100% ;
+}
+
+nav{    /*sirve para centrar los botones de la barra de menu*/
+   height: 100%;
+}
+
+nav > ul{ /*es para que afecte al sub menu solamente y que los demas no tengan las mismas propiedades que esta*/
+   height: 100%;
+   display: flex; /*para que vayan todos de costado los menus*/
+}
+
+nav ul li{
+   height: 100%;
+   list-style: none;
+   position: relative;/*es para solo el submenu */
+}
+
+nav > ul > li > a{
+   width: 100%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   color: rgb(243, 237, 237);  /*es el color de las letras del menu*/
+   padding: 14px ;/*es el espacio que hay entre los menus*/
+   text-transform: uppercase;/*para que todas las letras esten en mayusculas*/
+   font-size: 14px;
+   transition: all 300ms ease;
+}
+
+nav > ul > li > a:hover{
+   transform: scale(1.1);
+   background: rgb(77, 98, 218);
+   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+/*para el sub menu*/
+nav ul li ul{
+   width: 200px;
+   display: flex;
+   flex-direction: column;
+   background: white;
+   position: absolute;
+   top: 90px;
+   left: -5px;
+   padding: 14px 0px;
+   visibility: hidden;  /*para que el sub menu este oculto*/
+   opacity: 0; /* */
+   box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 5);/*  seria la sombra*/
+   z-index: 10 ;
+   transition: all 300ms ease;
+}
+
+/*para que aparezca el sub menu al pasar por el li*/
+nav ul li:hover ul{
+   visibility: visible;
+   opacity: 1;
+   top: 70px;
+}
+
+nav ul li ul:before{/*es una seudoclase que se adapte a el, en sintesis es el triangulito del sub menu*/
+   content: '';
+   width: 0;
+   height: 0;
+   border-left: 12px solid transparent;
+   border-left: 12px solid transparent;
+   border-bottom: 12px solid white;
+   position: absolute;
+   top: -10px;
+   left: 20px;
+}
+
+/*efecto hobber*/
+nav ul li ul li a{
+   display: block;
+   color: #2b2b7c;
+   padding: 6px;
+   margin-left: 14px;
+   margin-top: 10px;
+   font-size: 14px;
+   text-transform: uppercase;
+   transition: all 300ms ease ;
+}
+
+nav ul li ul li a:hover{
+   background: #517bd8;
+   color: white;
+   transform: scale(1.1);
+   padding-left: 30px;
+   font-size: 14px;
+   box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 5)
+}
+
+/*elementos responsivos del*/
+@media screen and (max-width: 720px) {
+   .search input{
+      display: none;
+   }
+
+   .header__superior{ 
+      padding: 10px;
+   }
+
+   .logo img{
+      width: 200px;
+   }
+
+   nav > ul{
+      flex-direction: column;
+      background-color: #2b2b7c;
+      position: fixed;
+      left: 158px;
+      left: 0;
+      top: 158px;
+      width: 100%;
+      height: 300px;
+      transition: all 300ms ease;
+      z-index: 100;
+      *opacity: 0;
+      *visibility: hidden;
+   }
+
+   nav > ul > li > a:hover{
+      transform: scale(1);
+   }
+
+   nav ul li ul{
+      left: 90px;
+   } 
+
+   nav > ul > li:hover ul{
+      top: 90px;
+   }
+   
+}
+
+body {
+   margin: 0;
+   padding: 0;
+  background-image: url(../css/img/f.jpg);/*esta es la forma que se usa para poner una imagen de fondo*/
+   background-size: cover;
+   background-position: center;
+   font-family: sans-serif;
+   
+}
+
+
+.contenedor{
+ 
+   width: 85%;    /*hace que baje o suba todo el bloque de texto*/
+   height: 8vh;
+   color: rgb(4, 20, 47);
+   height: 78vh;
+   margin: 7%;
+
+
+   display: flex;
+   flex-direction: column; /*es para que el texto se centre en la pantalla*/
+   justify-content: center;   /*centra el texto*/
+   
+}
+
+/*para el parrafo*/
+.letras{
+   font-size: 1.5rem;
+}
+
+/*para el titulos*/
+.display{
+   font-size: 4rem;
+
+}
+
+/*estilo para parte del formulario de comentarios*/
+.coment{
+   width: 500px;
+
+   /*height: 8vh;  /*determina el largor del fondo del comentario*/
+   margin: 6%;
+   
+  /* background: #517bd8;/*fondo del comentarios*/
+
+   padding: 60px 65px; /*centra el contenido completo del comentario*/
+
+  align-items: unset;  
+   
+}
+
+.coment label{
+   margin: 0;
+   padding: 0;
+   text-align: center;
+   font-size: 25px;
+ 
+}
+/*para que las letras del comentario esten en negrita*/
+.coment label{
+   font-weight: bold;
+}
+
+
+/*para que la caja de texto tenga un tamaño adecuado*/
+.coment input{
+   width: 90%;
+   height: 35px;
+   background-color: white;
+   color: black;
+   bottom: auto;
+}
+
+.coment input [type="submit"] {
+   border: none;
+   outline: none;
+   background: black;
+   
+}
+
+.container{
+   width: 500pv;
+}
